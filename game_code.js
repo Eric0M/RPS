@@ -13,6 +13,20 @@ function getComputerChoice(){
         let computerChoice = "scissors"
         return computerChoice  
     }
+    else{
+        console.log("unexpected error")
+    }
 }
 
+// Gets users choice of rock paper or scissors and denies any other inputs (rps is not case sensitive)
+function getUserChoice(){
+    let userChoice = prompt("Pick your weapon (Rock, Paper, or Scissors)");
+    userChoice = userChoice.toLowerCase()
+    if(userChoice == "rock" || userChoice == "paper" || userChoice == "scissors"){
+        return userChoice
+    }
+    else{
+        alert("Please enter rock, paper, or scissors")
+    }
+}
 

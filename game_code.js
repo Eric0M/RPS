@@ -30,6 +30,7 @@ function getUserChoice(){
     }
 }
 
+// Plays out the game of rps 
 function letsPlay(){
     let p = getUserChoice();
     let c = getComputerChoice();

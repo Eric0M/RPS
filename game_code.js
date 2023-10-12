@@ -29,39 +29,57 @@ function getUserChoice(){
         alert("Please enter rock, paper, or scissors")
     }
 }
-
+// Player and Computer scores
+    let pScore = 0
+    let cScore = 0
+// Plays out the game of rps 
 function letsPlay(){
     let p = getUserChoice();
     let c = getComputerChoice();
 
     if(p == "rock" && c == "paper"){
         alert(`Computer picked ${c}, you lose!`)
+        cScore = ++cScore
     }
     else if(p == "paper" && c == "paper"){
         alert(`Computer picked ${c}, it's a draw!`)
     }
     else if(p == "scissors" && c == "paper"){
         alert(`Computer picked ${c}, you win!`)
+        pScore = ++pScore
     }
     else if(p == "rock" && c == "rock"){
         alert(`Computer picked ${c}, it's a draw!`)
     }
     else if(p == "paper" && c == "rock"){
         alert(`Computer picked ${c}, you win!`)
+        pScore = ++pScore
     }
     else if(p == "scissors" && c == "rock"){
         alert(`Computer picked ${c}, you lose!`)
+        cScore = ++cScore
     }
     else if(p == "rock" && c == "scissors"){
         alert(`Computer picked ${c}, you win!`)
+        pScore = ++pScore
     }
     else if(p == "paper" && c == "scissors"){
         alert(`Computer picked ${c}, you lose!`)
+        cScore = ++cScore
     }
     else if(p == "scissors" && c == "scissors"){
         alert(`Computer picked ${c}, it's a draw!`)
     }
     else{
         alert("an unexpected error has occured")
+    }
+
+    console.log(`The score is now ${pScore} for player and ${cScore} for the computer`)
+}
+
+// Plays a 5 round game of rps
+function game(){
+    for(let item = 0; item < 5; item++){
+        letsPlay()
     }
 }

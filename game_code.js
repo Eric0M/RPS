@@ -30,3 +30,38 @@ function getUserChoice(){
     }
 }
 
+function letsPlay(){
+    let p = getUserChoice();
+    let c = getComputerChoice();
+
+    if(p == "rock" && c == "paper"){
+        alert(`Computer picked ${c}, you lose!`)
+    }
+    else if(p == "paper" && c == "paper"){
+        alert(`Computer picked ${c}, it's a draw!`)
+    }
+    else if(p == "scissors" && c == "paper"){
+        alert(`Computer picked ${c}, you win!`)
+    }
+    else if(p == "rock" && c == "rock"){
+        alert(`Computer picked ${c}, it's a draw!`)
+    }
+    else if(p == "paper" && c == "rock"){
+        alert(`Computer picked ${c}, you win!`)
+    }
+    else if(p == "scissors" && c == "rock"){
+        alert(`Computer picked ${c}, you lose!`)
+    }
+    else if(p == "rock" && c == "scissors"){
+        alert(`Computer picked ${c}, you win!`)
+    }
+    else if(p == "paper" && c == "scissors"){
+        alert(`Computer picked ${c}, you lose!`)
+    }
+    else if(p == "scissors" && c == "scissors"){
+        alert(`Computer picked ${c}, it's a draw!`)
+    }
+    else{
+        alert("an unexpected error has occured")
+    }
+}

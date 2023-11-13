@@ -29,6 +29,12 @@ function getComputerChoice(){
 //         alert("Please enter rock, paper, or scissors")
 //     }
 // }
+// Plays a 5 round game of rps
+function game(){
+    for(let item = 0; item < 5; item++){
+        letsPlay()
+    }
+}
 
 function userChoseRock(){
     letsPlay("rock")
@@ -40,17 +46,15 @@ function userChoseScissors(){
     letsPlay("scissors")
 }
 
-
-let paper = document.getElementById('paper')
-let scissors = document.getElementById('scissors')
-
 document.getElementById('rock').addEventListener('click', userChoseRock)
-paper.addEventListener('click', userChosePaper)
-scissors.addEventListener('click', userChoseScissors)
+document.getElementById('paper').addEventListener('click', userChosePaper)
+document.getElementById('scissors').addEventListener('click', userChoseScissors)
 
 // Player and Computer scores
     let pScore = 0
     let cScore = 0
+    let playerScore = document.getElementById('pScore')
+    let computerScore = document.getElementById('cScore')
 // Plays out the game of rps 
 function letsPlay(p){
     let c = getComputerChoice();
@@ -93,11 +97,24 @@ function letsPlay(p){
     }
 
     console.log(`The score is now ${pScore} for player and ${cScore} for the computer`)
+    playerScore.textContent = pScore
+    computerScore.textContent = cScore
+
+    if(cScore == 3){
+        alert('Computer Wins Best of 5')
+        cScore = 0
+        pScore = 0
+        playerScore.textContent = pScore
+        computerScore.textContent = cScore
+    }
+    if(pScore == 3){
+        alert('Player Wins Best of 5')
+        cScore = 0
+        pScore = 0
+        playerScore.textContent = pScore
+        computerScore.textContent = cScore
+    }
 }
 
-// Plays a 5 round game of rps
-// function game(){
-//     for(let item = 0; item < 5; item++){
-//         letsPlay()
-//     }
-// }
+
+

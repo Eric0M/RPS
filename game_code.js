@@ -1,15 +1,38 @@
+// // Gets a random value between 0-9 and returns a random "weighted for rock" rps choice
+// function getComputerChoice(){
+//     let rand = Math.floor(Math.random()*10)
+//     if(rand >= 0 && rand <=3){
+//         let computerChoice = "rock"
+//         return computerChoice
+//     }
+//     else if(rand > 3 && rand <=6){
+//         let computerChoice = "paper"
+//         return computerChoice
+//     }
+//     else if(rand > 6 && rand <=9){
+//         let computerChoice = "scissors"
+//         return computerChoice  
+//     }
+//     else{
+//         console.log("unexpected error")
+//     }
+// }
+
 // Gets a random value between 0-9 and returns a random "weighted for rock" rps choice
 function getComputerChoice(){
     let rand = Math.floor(Math.random()*10)
-    if(rand >= 0 && rand <=3){
+    if(rand == 0){
+        return getComputerChoice()
+    }
+    else if(rand >= 1 && rand <=3){
         let computerChoice = "rock"
         return computerChoice
     }
-    else if(rand > 3 && rand <=6){
+    else if(rand >= 4 && rand <=6){
         let computerChoice = "paper"
         return computerChoice
     }
-    else if(rand > 6 && rand <=9){
+    else if(rand >= 7 && rand <=9){
         let computerChoice = "scissors"
         return computerChoice  
     }
@@ -60,34 +83,55 @@ function letsPlay(p){
     let c = getComputerChoice();
 
     if(p == "rock" && c == "paper"){
-        alert(`Computer picked ${c}, you lose!`)
         cScore = ++cScore
+        computerScore.textContent = cScore
+        setTimeout(() =>{
+            alert(`Computer picked ${c}, you lose!`);
+        }, 10);
+        
     }
     else if(p == "paper" && c == "paper"){
         alert(`Computer picked ${c}, it's a draw!`)
     }
     else if(p == "scissors" && c == "paper"){
-        alert(`Computer picked ${c}, you win!`)
         pScore = ++pScore
+        playerScore.textContent = pScore
+        setTimeout(() => {
+            alert(`Computer picked ${c}, you win!`);
+          }, 10);
     }
     else if(p == "rock" && c == "rock"){
         alert(`Computer picked ${c}, it's a draw!`)
     }
     else if(p == "paper" && c == "rock"){
-        alert(`Computer picked ${c}, you win!`)
         pScore = ++pScore
+        playerScore.textContent = pScore
+        setTimeout(() => {
+            alert(`Computer picked ${c}, you win!`);
+          }, 10);
+    
     }
     else if(p == "scissors" && c == "rock"){
-        alert(`Computer picked ${c}, you lose!`)
         cScore = ++cScore
+        computerScore.textContent = cScore
+        setTimeout(() =>{
+            alert(`Computer picked ${c}, you lose!`);
+        }, 10);
     }
     else if(p == "rock" && c == "scissors"){
-        alert(`Computer picked ${c}, you win!`)
         pScore = ++pScore
+        playerScore.textContent = pScore
+        setTimeout(() => {
+            alert(`Computer picked ${c}, you win!`);
+          }, 10);
+        
     }
     else if(p == "paper" && c == "scissors"){
-        alert(`Computer picked ${c}, you lose!`)
         cScore = ++cScore
+        computerScore.textContent = cScore
+        setTimeout(() =>{
+            alert(`Computer picked ${c}, you lose!`);
+        }, 10);
     }
     else if(p == "scissors" && c == "scissors"){
         alert(`Computer picked ${c}, it's a draw!`)
@@ -97,22 +141,35 @@ function letsPlay(p){
     }
 
     console.log(`The score is now ${pScore} for player and ${cScore} for the computer`)
-    playerScore.textContent = pScore
-    computerScore.textContent = cScore
+  
 
     if(cScore == 3){
-        alert('Computer Wins Best of 5')
-        cScore = 0
-        pScore = 0
-        playerScore.textContent = pScore
         computerScore.textContent = cScore
+        setTimeout(() =>{
+            alert('Computer Wins Best of 5')
+            cScore = 0
+            pScore = 0
+            playerScore.textContent = pScore
+            computerScore.textContent = cScore
+        }, 1000);
+        // cScore = 0
+        // pScore = 0
+        // playerScore.textContent = pScore
+        // computerScore.textContent = cScore
     }
     if(pScore == 3){
-        alert('Player Wins Best of 5')
-        cScore = 0
-        pScore = 0
         playerScore.textContent = pScore
-        computerScore.textContent = cScore
+        setTimeout(() =>{
+            alert('Player Wins Best of 5')
+            cScore = 0
+            pScore = 0
+            playerScore.textContent = pScore
+            computerScore.textContent = cScore
+        }, 1000);
+        // cScore = 0
+        // pScore = 0
+        // playerScore.textContent = pScore
+        // computerScore.textContent = cScore
     }
 }
 
